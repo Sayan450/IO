@@ -1,4 +1,4 @@
-# CP1404/5632 Assignment: Songs To Learn by Vaibhav Jain
+# CP1404/5632 Assignment: Songs To Learn by Sayan Das
 
 > The project reflection is complete and describes development and learning well, shows careful thought, highlights insights made during code development.
 
