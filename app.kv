@@ -1,0 +1,98 @@
+BoxLayout:
+    id: mainBox
+    Popup:
+        id: popup
+        size_hint: (.7, .7)
+        title: "Add Phonebook Entry"
+        on_parent:
+            if self.parent == mainBox: self.parent.remove_widget(self)
+        BoxLayout:
+            id: inputs
+            orientation: 'vertical'
+            Label:
+                text: 'Name: '
+                size_hint_y: None
+                height: '48dp'
+            TextInput:
+                id: addedName
+                value: ''
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                write_tab: False
+            Label:
+                text: 'Phone Number: '
+                size_hint_y: None
+                height: '48dp'
+            TextInput:
+                id: addedNumber
+                value: ''
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                write_tab: False
+            Button:
+                text: 'Save Entry'
+                on_release: app.press_save(addedName.text, addedNumber.text)
+            Button:
+                text: 'Cancel'
+                on_release: app.press_cancel()
+            Label:
+                text: app.status_text
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_x: 0.3
+                Label:
+                    text:"Sort by:"
+                Spinner:
+                    id:spinner
+                    text:"Title"
+                    values:"Title","Artist","Year"
+
+                Label:
+                    text:"Title"
+                TextInput:
+                    id:Title
+
+                Label:
+                    text:"Artist"
+                TextInput:
+                    id:Artist
+                Label:
+                    text:"Year"
+                TextInput:
+                    id:Year
+
+                Button:
+                    id: addButton
+                    text: 'Add Song'
+                    on_release: app.add_song()
+                Button:
+                    id: clearButton
+                    text: 'Clear'
+                    on_release: app.clear_text()
+                Button:
+                    id:refreshButton
+                    text:'Refresh'
+                    on_release:app.press_refresh()
+            BoxLayout:
+                orientation:"vertical"
+                Label:
+                    id: statusLabel
+                    size_hint_y: 0.1
+                    text: app.status_text
+                BoxLayout:
+                    id: entriesBox
+                    cols: 4
+                    orientation: 'vertical'
+                Label:
+                    id: statusLabel2
+                    size_hint_y: 0.1
+                    text: app.status_text2
+
+
+
